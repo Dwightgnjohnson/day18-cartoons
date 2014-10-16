@@ -1,0 +1,33 @@
+<%= form_for(@cartoon) do |f| %>
+  <% if @cartoon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cartoon.errors.count, "error") %> prohibited this cartoon from being saved:</h2>
+
+      <ul>
+      <% @cartoon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :characters %><br>
+    <%= f.text_area :characters %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_url %><br>
+    <%= f.text_field :photo_url %>
+  </div>
+  <div class="field">
+    <%= f.label :onair %><br>
+    <%= f.check_box :onair %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

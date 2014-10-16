@@ -1,0 +1,31 @@
+<h1>Listing cartoons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Characters</th>
+      <th>Photo url</th>
+      <th>Onair</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cartoons.each do |cartoon| %>
+      <tr>
+        <td><%= cartoon.name %></td>
+        <td><%= cartoon.characters %></td>
+        <td><%= cartoon.photo_url %></td>
+        <td><%= cartoon.onair %></td>
+        <td><%= link_to 'Show', cartoon %></td>
+        <td><%= link_to 'Edit', edit_cartoon_path(cartoon) %></td>
+        <td><%= link_to 'Destroy', cartoon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cartoon', new_cartoon_path %>
